@@ -8,7 +8,7 @@ function App() {
     <Navbar />
     <Routes>
       <Route path="/Invasions" element={<Invasions />} />
-      <Route path="/form" element={<NotificationForm />} />
+      <Route path="/Notification-Form" element={<NotificationForm />} />
     </Routes>
   </>
 }
