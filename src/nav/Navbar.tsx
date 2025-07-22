@@ -1,20 +1,20 @@
 import { Link } from 'react-router-dom';
 import InvasionIcon from '../assets/InvasionIcon.webp';
+import NotificationTimerIcon from '../assets/NotificationTimerIcon.png';
+import { useState } from 'react';
+import NavItem from './NavItem';
 
 
 export default function Navbar() {
+  const [lockedId, setLockedId] = useState<number | null>(null);
+
   return (
     <nav className="bg-black text-white flex">
-      <Link to="/" title='Invasions' className="flex items-center justify-center">
-        <div className="relative group w-full h-full inline-block rounded overflow-hidden">
-          <img
-            src={InvasionIcon}
-            alt="Invasion Icon"
-            className="block w-[60px] h-[60px] object-contain"
-          />
-          <div className="absolute inset-0 bg-red-500 opacity-0 group-hover:opacity-30 transition-opacity" />
-        </div>
-
+      <Link to="/Invasions" title='Invasions' className="flex items-center justify-center">
+        <NavItem id={1} icon={InvasionIcon} lockedId={lockedId} setLockedId={setLockedId}/>
+      </Link>
+      <Link to="/Notification-Form" title='Notification Form' className="flex items-center justify-center">
+        <NavItem id={2} icon={NotificationTimerIcon} lockedId={lockedId} setLockedId={setLockedId}/>
       </Link>
     </nav>
   );
