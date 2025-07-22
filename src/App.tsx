@@ -1,15 +1,16 @@
 import { Route, Routes } from 'react-router-dom'
 import { NotificationForm } from './NotificationForm'
 import { Invasions } from './Invasions'
+import Navbar from './nav/Navbar'
 
 function App() {
-  return (
+  return <>
+    <Navbar />
     <Routes>
-      <Route path="/" element={<Invasions/>} />
-      <Route path="/form" element={<NotificationForm/>} />
+      <Route path="/" element={<Invasions />} />
+      <Route path="/form" element={<NotificationForm />} />
     </Routes>
-
-  )
+  </>
 }
 
 export default App
