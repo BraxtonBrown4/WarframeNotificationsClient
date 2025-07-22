@@ -7,7 +7,7 @@ function App() {
   return <>
     <Navbar />
     <Routes>
-      <Route path="/" element={<Invasions />} />
+      <Route path="/Invasions" element={<Invasions />} />
       <Route path="/form" element={<NotificationForm />} />
     </Routes>
   </>
