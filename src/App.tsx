@@ -1,6 +1,6 @@
 import { Outlet, Route, Routes } from 'react-router-dom'
 import { NotificationForm } from './NotificationForm'
-import { Invasions } from './invasions/Invasions'
+import Invasions from './invasions/Invasions'
 import Navbar from './nav/Navbar'
 
 function App() {
