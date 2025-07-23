@@ -1,7 +1,7 @@
 import { Outlet, Route, Routes } from 'react-router-dom'
-import { NotificationForm } from './NotificationForm'
-import Invasions from './invasions/Invasions'
-import Navbar from './nav/Navbar'
+import { NotificationForm } from './components/NotificationForm'
+import Invasions from './components/invasions/Invasions'
+import Navbar from './components/nav/Navbar'
 
 function App() {
   return <Routes>

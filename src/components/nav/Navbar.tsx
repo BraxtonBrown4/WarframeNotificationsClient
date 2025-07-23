@@ -1,5 +1,5 @@
-import InvasionIcon from '../assets/InvasionIcon.webp';
-import NotificationTimerIcon from '../assets/NotificationTimerIcon.png';
+import InvasionIcon from '../../assets/InvasionIcon.webp'
+import NotificationTimerIcon from '../../assets/NotificationTimerIcon.png';
 import NavItem from './NavItem';
 
 
