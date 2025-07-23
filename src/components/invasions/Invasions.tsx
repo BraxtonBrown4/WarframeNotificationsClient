@@ -14,7 +14,7 @@ export default function Invasions() {
         <h2 className="w-full max-w-2xl m-4 text-3xl border-b-2 border-white pb-2">INVASIONS</h2>
         {
             isLoading ? <h2>Loading...</h2> : (
-                invasions?.map((i: Invasion) => <InvasionCard key={i.id} invasion={i}/>)
+                invasions?.map((i: Invasion) => !i.completed &&  <InvasionCard key={i.id} invasion={i}/>)
             )
         }
     </div>
