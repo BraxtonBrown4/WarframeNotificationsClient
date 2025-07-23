@@ -4,6 +4,7 @@ import InfestedIcon from "../../assets/InfestedIcon.svg"
 import type { FactionInfo, Invasion } from "./InvasionTypes";
 import imgFinder from "../../utilities/ImgFinder";
 import { useQuery } from "@tanstack/react-query";
+import { useMemo } from "react";
 
 export default function InvasionCard({ invasion }: { invasion: Invasion }) {
 
@@ -30,18 +31,25 @@ export default function InvasionCard({ invasion }: { invasion: Invasion }) {
         }
     }
 
-    const attackerInfo = factionInfo(invasion.attacker.faction);
-    const defenderInfo = factionInfo(invasion.defender.faction);
+    const attackerInfo = useMemo(
+        () => factionInfo(invasion.attacker.faction),
+        [invasion.attacker.faction]
+    );
 
-    const { data: attackerReward, isLoading: DRIIsLoading } = useQuery<string>({
+    const defenderInfo = useMemo(
+        () => factionInfo(invasion.defender.faction),
+        [invasion.defender.faction]
+    );
+
+    const { data: attackerReward, isLoading: defenderRewardLoading } = useQuery<string>({
         queryKey: ['AttackerRewardImg', `${invasion.id}`],
-        queryFn: () => imgFinder(invasion?.attacker?.reward?.thumbnail),
+        queryFn: () => imgFinder(invasion.attacker.reward.thumbnail),
         enabled: !!invasion?.attacker?.reward?.thumbnail,
     })
 
-    const { data: defenderReward, isLoading: ARIIsLoading } = useQuery<string>({
+    const { data: defenderReward, isLoading: attackerRewardLoading } = useQuery<string>({
         queryKey: ['DefenderRewardImg', `${invasion.id}`],
-        queryFn: () => imgFinder(invasion?.defender?.reward?.thumbnail),
+        queryFn: () => imgFinder(invasion.defender.reward.thumbnail),
         enabled: !!invasion?.defender?.reward?.thumbnail
     });
 
@@ -77,15 +85,15 @@ export default function InvasionCard({ invasion }: { invasion: Invasion }) {
 
                     <div className="flex items-center space-x-2">
                         {invasion.attacker.faction !== "Infested" && <>
-                            {!ARIIsLoading ? <img src={attackerReward} alt="Reward Image" className="w-6 h-6" /> : <h2 className="text-xs">Loading...</h2>}
-                            <span className="text-gray-100 font-bold text-sm">{invasion?.attacker?.reward?.asString}</span>
+                            {!attackerRewardLoading ? <img src={attackerReward} alt="Reward Image" className="w-6 h-6" /> : <h2 className="text-xs">Loading...</h2>}
+                            <span className="text-gray-100 font-bold text-sm">{invasion.attacker.reward.asString}</span>
                         </>}
                     </div>
 
                     <div className="flex items-center space-x-2">
                         {invasion.defender.faction !== "Infested" && <>
-                            <span className="text-gray-100 font-bold text-sm">{invasion?.defender?.reward?.asString}</span>
-                            {!DRIIsLoading ? <img src={defenderReward} alt="Reward Image" className="w-6 h-6" /> : <h2 className="text-xs">Loading...</h2>}
+                            <span className="text-gray-100 font-bold text-sm">{invasion.defender.reward.asString}</span>
+                            {!defenderRewardLoading ? <img src={defenderReward} alt="Reward Image" className="w-6 h-6" /> : <h2 className="text-xs">Loading...</h2>}
                         </>}
                     </div>
 

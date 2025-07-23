@@ -2,12 +2,16 @@ export default async function imgFinder(url: string): Promise<string> {
     try {
         const stringArray: string[] = url.split("/");
 
-        let keyword: string = stringArray.pop()?.replaceAll("-", "%20") || "";
+        let keyword: string = stringArray.pop()?.replace(/-/g, "%20") || "";
 
         keyword = keyword.replace(".png", "");
 
         const res = await fetch(`https://api.warframestat.us/items/search/${keyword}`);
         const data = await res.json();
+
+        if (!Array.isArray(data) || data.length === 0 || !data[0].imageName) {
+            throw new Error("No image found for keyword");
+        }
 
         stringArray.push(data[0].imageName);
 

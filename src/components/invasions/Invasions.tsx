@@ -6,7 +6,7 @@ export default function Invasions() {
 
     const { data: invasions, isLoading } = useQuery<Invasion[]>({
         queryKey: ['Invasions'],
-        queryFn: () =>
+        queryFn: (): Promise<Invasion[]> =>
             fetch("https://api.warframestat.us/pc/invasions").then(res => res.json()),
     });
 
