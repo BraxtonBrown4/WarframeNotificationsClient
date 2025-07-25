@@ -1,6 +1,6 @@
-import GrineerIcon from "../../assets/GrineerIcon.webp"
-import CorpusIcon from "../../assets/CorpusIcon.webp"
-import InfestedIcon from "../../assets/InfestedIcon.svg"
+import GrineerIcon from "../../assets/factionIcons/GrineerIcon.webp"
+import CorpusIcon from "../../assets/factionIcons/CorpusIcon.webp"
+import InfestedIcon from "../../assets/factionIcons/InfestedIcon.svg"
 import type { FactionInfo, Invasion } from "./InvasionTypes";
 import imgFinder from "../../utilities/ImgFinder";
 import { useQuery } from "@tanstack/react-query";
