@@ -43,9 +43,3 @@ export interface Invasion {
     rewardTypes: string[];
     vsInfestation: boolean;
 }
-
-export interface FactionInfo {
-    icon: string;
-    progressionColor: string;
-    invertedIconColor?: string;
-}
