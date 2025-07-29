@@ -28,7 +28,7 @@ export default function VoidFissures() {
                 onClick={() => { setSteelPath(false), setVoidStorm(false) }}>
                 <div className="absolute inset-0 flex justify-center items-center">
                     <div className={`rounded-full transition duration-300 blur-lg w-[36px] h-[36px] bg-[radial-gradient(circle,rgba(161,147,99,1)_0%,transparent_60%)] 
-                ${!steelPath ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+                ${!steelPath && !voidStorm ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
                 </div>
                 <img
                     src={OriginIcon}
