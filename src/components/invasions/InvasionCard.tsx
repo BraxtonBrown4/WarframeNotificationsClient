@@ -1,35 +1,10 @@
-import GrineerIcon from "../../assets/GrineerIcon.webp"
-import CorpusIcon from "../../assets/CorpusIcon.webp"
-import InfestedIcon from "../../assets/InfestedIcon.svg"
-import type { FactionInfo, Invasion } from "./InvasionTypes";
+import type { Invasion } from "./InvasionTypes";
 import imgFinder from "../../utilities/ImgFinder";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
+import factionInfo from "../../utilities/FactionInfo";
 
 export default function InvasionCard({ invasion }: { invasion: Invasion }) {
-
-    function factionInfo(faction: string): FactionInfo | null {
-        switch (faction.toLowerCase()) {
-            case 'grineer':
-                return {
-                    icon: GrineerIcon,
-                    progressionColor: "bg-[#993a3b]",
-                }
-            case 'corpus':
-                return {
-                    icon: CorpusIcon,
-                    progressionColor: "bg-[#3f6b77]",
-                }
-            case 'infested':
-                return {
-                    icon: InfestedIcon,
-                    progressionColor: "bg-[#48745d]",
-                    invertedIconColor: "filter invert"
-                }
-            default:
-                return null
-        }
-    }
 
     const attackerInfo = useMemo(
         () => factionInfo(invasion.attacker.faction),
