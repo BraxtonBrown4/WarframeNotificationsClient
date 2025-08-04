@@ -3,7 +3,7 @@ import { NotificationForm } from './components/NotificationForm'
 import Invasions from './components/invasions/Invasions'
 import Navbar from './components/nav/Navbar'
 import VoidFissures from './components/voidFissures/VoidFissures'
-import SyndicateBounties from './components/syndicateBounties/SyndicateBounties'
+import SyndicateBounties from './components/syndicateMissions/SyndicateMissions'
 
 function App() {
   return <Routes>
