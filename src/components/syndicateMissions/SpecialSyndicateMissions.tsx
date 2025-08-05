@@ -39,7 +39,7 @@ export default function SpecialSyndicateMissions({ specialSyndicateMissions, isL
             {
                 isLoading ? <h2>Loading...</h2> : (
                     specialSyndicateMissions?.bounties[selectedSyndicate]?.map((bounty, index) => 
-                        <SpecialSyndicateCard key={index} bounty={bounty} />
+                        <SpecialSyndicateCard key={index} bounty={bounty} index={index} />
                     )
                 )
             }

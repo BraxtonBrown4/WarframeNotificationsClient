@@ -1,6 +1,6 @@
 import type { CustomSyndicateBounty } from "./SyndicateTypes";
 
-export default function SpecialSyndicateCard({ bounty }: { bounty: CustomSyndicateBounty }) {
+export default function SpecialSyndicateCard({ bounty, index }: { bounty: CustomSyndicateBounty, index: number }) {
     return (
         <div className="bg-gray-900 text-white font-mono text-xs border border-gray-500 w-full max-w-md m-2 min-h-48 flex">
             {bounty.challenge.icon && (
@@ -17,6 +17,12 @@ export default function SpecialSyndicateCard({ bounty }: { bounty: CustomSyndica
                 <div className="flex flex-col mb-2">
                     <h4 className="font-bold text-sm mb-1 break-words text-[#b5a66e]">
                         {bounty.challenge.name}
+                    </h4>
+                </div>
+
+                <div className="flex flex-col mb-2">
+                    <h4 className="text-gray-300 text-xs mb-2">
+                        Bounty Rank: {index + 1}
                     </h4>
                 </div>
                 
