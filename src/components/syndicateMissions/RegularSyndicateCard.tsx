@@ -16,7 +16,6 @@ export default function RegularSyndicateCard({ mission }: { mission: SyndicateMi
                 
                 <div className="text-gray-300 text-xs mb-2">
                     <p>Nodes: {mission.nodes.join(', ')}</p>
-                    <p>Jobs: {mission.jobs.length}</p>
                 </div>
                 
                 <div className="text-gray-400 text-xs">
