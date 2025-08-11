@@ -1,8 +1,18 @@
+import { useState } from "react";
+
 export const NotificationForm = () => {
+  const [loggedIn, setLoggedIn] = useState(false)
+
+  const handleSubmit = () => {
+    if (!loggedIn) {
+      window.location.href = "/.auth/login/aad"
+    }
+  }
+
   return (
     <div>
       <h2>Form</h2>
-      <button>Submit</button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };
