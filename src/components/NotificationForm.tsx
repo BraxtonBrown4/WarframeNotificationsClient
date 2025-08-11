@@ -7,6 +7,8 @@ export const NotificationForm = () => {
     if (!loggedIn) {
       window.location.href = "/.auth/login/aad"
     }
+
+    setLoggedIn(false)
   }
 
   return (
