@@ -1,27 +1,22 @@
-import { useEffect, useState } from 'react';
 import InvasionIcon from '../../assets/InvasionIcon.webp';
 import NotificationTimerIcon from '../../assets/NotificationTimerIcon.webp';
 import VoidFissureIcon from '../../assets/VoidFissureIcon.webp';
 import SyndicateIcon from '../../assets/SyndicateIcon.png';
 import NavItem from './NavItem';
+import { useQuery } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
-  const [user, setUser] = useState(null);
+  const navigate = useNavigate()
 
-  useEffect(() => {
-    async function checkAuth() {
-      try {
-        const res = await fetch("/.auth/me", { credentials: "include" });
-        if (res.ok) {
-          const data = await res.json();
-          setUser(data.clientPrincipal || null);
-        }
-      } catch (err) {
-        console.error("Auth check failed:", err);
-      }
-    }
-    checkAuth();
-  }, []);
+  const { data: user, isLoading } = useQuery({
+    queryKey: ['User'],
+    queryFn: () =>
+        fetch('/.auth/me', { credentials: 'include' })
+    .then(res => res.json())
+    .then(data => data.clientPrincipal || null),
+    retry: false
+});
 
   return (
     <nav className="bg-black w-screen h-[50px] text-white flex fixed z-50">
@@ -30,26 +25,10 @@ export default function Navbar() {
       <NavItem icon={SyndicateIcon} iconAlt='Syndicate Icon' url='/Syndicate-Missions' linkTitle='Syndicate Missions' />
       <NavItem icon={NotificationTimerIcon} iconAlt='Bell Icon' url='/Notification-Form' linkTitle='Notification Form' />
 
-      {/* Right side: login/logout */}
-      <div className="ml-auto flex items-center pr-4">
-        {user ? (
-          <>
-            <a
-              href="/.auth/logout"
-              className="bg-red-500 px-3 py-1 rounded hover:bg-red-600"
-            >
-              Logout
-            </a>
-          </>
-        ) : (
-          <a
-            href="/.auth/login/aad" // Change provider if needed
-            className="bg-green-500 px-3 py-1 rounded hover:bg-green-600"
-          >
-            Login
-          </a>
-        )}
-      </div>
+      {user ?
+      <button disabled = {isLoading} onClick={() => {navigate("/.auth/logout")}}>Logout</button> :
+      <button disabled = {isLoading} onClick={() => {navigate("/.auth/login/aad")}}>Login</button>
+      }
     </nav>
   );
 }
