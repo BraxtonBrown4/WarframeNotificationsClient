@@ -3,9 +3,7 @@ import { useQueryClient } from "@tanstack/react-query";
 export const NotificationForm = () => {
   const queryClient = useQueryClient();
 
-  const user = queryClient.getQueryData(["user"]);
-
-  console.log(user)
+  const user = queryClient.getQueryData(["User"]);
 
   return (
     <div>
