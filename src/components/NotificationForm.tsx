@@ -1,20 +1,27 @@
+import { QueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
 export const NotificationForm = () => {
-  const [loggedIn, setLoggedIn] = useState(false)
+  const queryClient = new QueryClient();
 
-  const handleSubmit = () => {
-    if (!loggedIn) {
-      window.location.href = "/.auth/login/aad"
-    }
+  const user = queryClient.getQueryData(["user"]);
 
-    setLoggedIn(false)
-  }
 
   return (
     <div>
       <h2>Form</h2>
-      <button onClick={handleSubmit}>Submit</button>
+      <button >Submit</button>
+
+      {!user &&
+        <div className="fixed inset-0 flex items-center justify-center bg-white/20">
+          <div className="bg-white rounded-lg p-6 max-w-sm w-full shadow-lg">
+            <h2 className="text-lg flex justify-center items-center text-black font-semibold">
+              Please login to set notifications!
+            </h2>
+          </div>
+        </div>
+      }
     </div>
+
   );
 };
