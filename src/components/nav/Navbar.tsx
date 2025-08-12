@@ -43,7 +43,7 @@ export default function Navbar() {
           </>
         ) : (
           <a
-            href="/.auth/login/github" // Change provider if needed
+            href="/.auth/login/aad" // Change provider if needed
             className="bg-green-500 px-3 py-1 rounded hover:bg-green-600"
           >
             Login
