@@ -24,8 +24,8 @@ export default function Navbar() {
       <NavItem icon={NotificationTimerIcon} iconAlt='Bell Icon' url='/Notification-Form' linkTitle='Notification Form' />
 
       {user ?
-      <button disabled = {isLoading} onClick={() => {window.location.href = "/.auth/logout"}}>Logout</button> :
-      <button disabled = {isLoading} onClick={() => {window.location.href = "/.auth/login/aad"}}>Login</button>
+      <button disabled = {isLoading} onClick={() => window.location.href = "/.auth/logout"}>Logout</button> :
+      <button disabled = {isLoading} onClick={() =>  window.location.href = "/.auth/login/aad"}>Login</button>
       }
     </nav>
   );
