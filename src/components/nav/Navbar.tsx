@@ -3,7 +3,7 @@ import NotificationTimerIcon from '../../assets/NotificationTimerIcon.webp';
 import VoidFissureIcon from '../../assets/VoidFissureIcon.webp';
 import SyndicateIcon from '../../assets/SyndicateIcon.png';
 import NavItem from './NavItem';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 export default function Navbar() {
 
