@@ -5,6 +5,8 @@ export const NotificationForm = () => {
 
   const user = queryClient.getQueryData(["user"]);
 
+  console.log(user)
+
   return (
     <div>
       <h2>Form</h2>
