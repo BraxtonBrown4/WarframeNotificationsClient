@@ -3,11 +3,9 @@ import NotificationTimerIcon from '../../assets/NotificationTimerIcon.webp';
 import VoidFissureIcon from '../../assets/VoidFissureIcon.webp';
 import SyndicateIcon from '../../assets/SyndicateIcon.png';
 import NavItem from './NavItem';
-import { useQuery } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 export default function Navbar() {
-  const navigate = useNavigate()
 
   const { data: user, isLoading } = useQuery({
     queryKey: ['User'],
@@ -26,8 +24,8 @@ export default function Navbar() {
       <NavItem icon={NotificationTimerIcon} iconAlt='Bell Icon' url='/Notification-Form' linkTitle='Notification Form' />
 
       {user ?
-      <button disabled = {isLoading} onClick={() => {navigate("/.auth/logout")}}>Logout</button> :
-      <button disabled = {isLoading} onClick={() => {navigate("/.auth/login/aad")}}>Login</button>
+      <button disabled = {isLoading} onClick={() => {window.location.href = "/.auth/logout"}}>Logout</button> :
+      <button disabled = {isLoading} onClick={() => {window.location.href = "/.auth/login/aad"}}>Login</button>
       }
     </nav>
   );
