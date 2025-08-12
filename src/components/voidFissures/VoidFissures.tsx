@@ -25,7 +25,7 @@ export default function VoidFissures() {
         <div className="fixed justify-center items-center right-[25vw] top-1/2 -translate-y-1/2 flex flex-col gap-4 p-4 w-[70px] bg-[#191811] border border-[#e8ddb8]">
             <div
                 className="relative group w-[50px] h-[50px] cursor-pointer"
-                onClick={() => { setSteelPath(false), setVoidStorm(false) }}>
+                onClick={() => { setSteelPath(false); setVoidStorm(false) }}>
                 <div className="absolute inset-0 flex justify-center items-center">
                     <div className={`rounded-full transition duration-300 blur-lg w-[36px] h-[36px] bg-[radial-gradient(circle,rgba(161,147,99,1)_0%,transparent_60%)] 
                 ${!steelPath && !voidStorm ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
@@ -39,7 +39,7 @@ export default function VoidFissures() {
 
             <div
                 className="relative group w-[50px] h-[50px] cursor-pointer"
-                onClick={() => { setSteelPath(true), setVoidStorm(false) }}>
+                onClick={() => { setSteelPath(true); setVoidStorm(false) }}>
                 <div className="absolute inset-0 flex justify-center items-center">
                     <div className={`rounded-full transition duration-300 blur-lg w-[36px] h-[36px] bg-[radial-gradient(circle,rgba(161,147,99,1)_0%,transparent_60%)] 
                 ${steelPath ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
@@ -50,7 +50,7 @@ export default function VoidFissures() {
                     className="w-[50px] h-[50px] relative z-10"
                 />
             </div>
-            <button onClick={() => { setVoidStorm(true), setSteelPath(false) }}>RJ</button>
+            <button onClick={() => { setVoidStorm(true); setSteelPath(false) }}>RJ</button>
         </div>
     </div>
     )
