@@ -1,5 +1,4 @@
 import { QueryClient } from "@tanstack/react-query";
-import { useState } from "react";
 
 export const NotificationForm = () => {
   const queryClient = new QueryClient();
