@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import InvasionIcon from '../../assets/InvasionIcon.webp';
-import NotificationTimerIcon from '../../assets/NotificationTimerIcon.png';
+import NotificationTimerIcon from '../../assets/NotificationTimerIcon.webp';
 import VoidFissureIcon from '../../assets/VoidFissureIcon.webp';
 import SyndicateIcon from '../../assets/SyndicateIcon.png';
 import NavItem from './NavItem';
